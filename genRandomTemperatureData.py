@@ -29,13 +29,12 @@ if __name__ == "__main__":
 
         filename = sys.argv[5]
 
-        dt = datetime.now()
-
         lines = ["#Time\tTemperature\n",]
-
+        currentTime = datetime.now()
         for rec in range(numOfRecsToGenerate):
-            currentTime = dt + timedelta(minutes=timeStep)
-            lines.append("%s\t%d\n" % (currentTime.strftime('%Y-%m-%d %H:%M:%S'), randint(minTemp, maxTemp)))
+            currentTime += timedelta(minutes=timeStep)
+            print currentTime
+            lines.append("%s\t%d\n" % (currentTime.strftime('%Y-%m-%d,%H:%M:%S'), randint(minTemp, maxTemp)))
 
         with open(filename, 'w') as f:
             for line in lines:
