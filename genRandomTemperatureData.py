@@ -33,7 +33,7 @@ if __name__ == "__main__":
         currentTime = datetime.now()
         for rec in range(numOfRecsToGenerate):
             currentTime += timedelta(minutes=timeStep)
-            lines.append("%s\t%d\n" % (currentTime.strftime('%Y-%m-%d,%H:%M:%S'), randint(minTemp, maxTemp)))
+            lines.append("%s\t%d\n" % (currentTime.strftime('%Y-%m-%d %H:%M:%S'), randint(minTemp, maxTemp)))
 
         with open(filename, 'w') as f:
             for line in lines:
